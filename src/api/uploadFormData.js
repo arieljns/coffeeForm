@@ -3,7 +3,7 @@ import axios from "axios";
 
 const uploadOrderData = async (formData) => {
   try {
-    let res = await axios.post("http://localhost:3000/coffee/form", formData, {
+    let res = await axios.post("https://blendtheorybackend.onrender.com/coffee/form", formData, {
       headers: {
         "Content-Type": "application/json"
       }
