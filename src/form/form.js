@@ -1,14 +1,17 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import "./form.css"
-import initialIllustration from "../assets/undraw_coffee_re_x35h.svg"
 import concentratedIllustration from "../assets/undraw_conversation_re_c26v.svg"
-import coffeeIllustration from "../assets/Brazuca - Pride Standing.png"
 import CoffeeMakerOutlinedIcon from '@mui/icons-material/CoffeeMakerOutlined';
 import EmojiFoodBeverageOutlinedIcon from '@mui/icons-material/EmojiFoodBeverageOutlined';
 import CoffeeWithFriends from "../assets/undraw_coffee_with_friends_3cbj.svg"
 import Choices from "../assets/undraw_choices.svg"
 import Preferences from "../assets/undraw_preferences_re_49in.svg"
+import SubmitIllustration from "../assets/undraw_publish_article_re_3x8h.svg"
+import { useNavigate } from 'react-router-dom';
+
+
+import uploadOrderData from '../api/uploadFormData';
 
 const ScrollableForm = () => {
   const [step, setStep] = useState(1);
@@ -18,12 +21,14 @@ const ScrollableForm = () => {
     milk: '',
     creaminess: ''
   });
-
+  //navigate to post-order page
+  const navigate = useNavigate()
   const scrollRefs = {
     question1: useRef(null),
     question2: useRef(null),
     question3: useRef(null),
     question4: useRef(null),
+    question5: useRef(null)
   };
 
   useEffect(() => {
@@ -36,10 +41,9 @@ const ScrollableForm = () => {
     } else {
       console.error('Element not found');
     }
-  }, [step]); // Runs when the step changes
+  }, [step]);
 
   const handleNext = (currentStep) => {
-    // Simply move to the next step
     setStep(currentStep + 1);
   };
 
@@ -48,7 +52,20 @@ const ScrollableForm = () => {
       ...formData,
       [name]: value
     });
+    console.log(formData)
   };
+
+  const handleSubmit = async () => {
+
+    try {
+      let resultFormData = await uploadOrderData(formData)
+      navigate('/post-order')
+      console.log("berhasil mengirim Data", resultFormData)
+    } catch (error) {
+      console.error("gagal untuk mengirimkan form data: ", error)
+    }
+
+  }
 
   const progressBar = (currentStep) => {
     let res = Math.floor((currentStep / 4) * 100)
@@ -67,18 +84,18 @@ const ScrollableForm = () => {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.1 }}
         >
           <img className='initial-illustration' height={250} width={200} alt={formData.beverageType} src={Preferences} />
           <h2>Would You Like Some Coffee Or Tea?</h2>
           <div className='choices-container'>
-            <div className='customer-choice' onClick={() => { handleInputChange('beverageType', 'coffee'); handleNext(1); }}>
+            <div className='customer-choice' onClick={() => { handleInputChange('beverageType', 'Kopi'); handleNext(1); }}>
               <CoffeeMakerOutlinedIcon style={{ height: 50, width: 50 }} />
-              coffee
+              Kopi
             </div>
-            <div className='customer-choice' onClick={() => { handleInputChange('beverageType', 'tea'); handleNext(1); }}>
+            <div className='customer-choice' onClick={() => { handleInputChange('beverageType', 'Teh'); handleNext(1); }}>
               <EmojiFoodBeverageOutlinedIcon style={{ height: 50, width: 50 }} />
-              tea
+              Teh
             </div>
           </div>
         </motion.div>
@@ -91,14 +108,14 @@ const ScrollableForm = () => {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.1 }}
           >
             <h2>A sweet {formData.beverageType} or a concentrated one?</h2>
-            <div className='customer-choice' onClick={() => { handleInputChange('sweetness', 'sweet'); handleNext(2); }}>
+            <div className='customer-choice' onClick={() => { handleInputChange('sweetness', 'manis'); handleNext(2); }}>
               <CoffeeMakerOutlinedIcon style={{ height: 50, width: 50 }} />
               sweet
             </div>
-            <div className='customer-choice' onClick={() => { handleInputChange('sweetness', 'concentrated'); handleNext(2); }}>
+            <div className='customer-choice' onClick={() => { handleInputChange('sweetness', 'pekat'); handleNext(2); handleSubmit() }}>
               <EmojiFoodBeverageOutlinedIcon style={{ height: 50, width: 50 }} />
               concentrated
             </div>
@@ -112,17 +129,17 @@ const ScrollableForm = () => {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.1 }}
           >
             <img className='initial-illustration' height={160} width={160} alt={formData.beverageType} src={CoffeeWithFriends} />
             <h2>Would you like your {formData.beverageType} with milk?</h2>
-            <div className='customer-choice' onClick={() => { handleInputChange('sweetness', 'sweet'); handleNext(3); }}>
+            <div className='customer-choice' onClick={() => { handleInputChange('milk', 'dengan susu'); handleNext(3); }}>
               <CoffeeMakerOutlinedIcon style={{ height: 50, width: 50 }} />
-              Yes
+              Use Milk
             </div>
-            <div className='customer-choice' onClick={() => { handleInputChange('sweetness', 'concentrated'); handleNext(3); }}>
+            <div className='customer-choice' onClick={() => { handleInputChange('milk', 'tanpa susu'); handleNext(3); }}>
               <EmojiFoodBeverageOutlinedIcon style={{ height: 50, width: 50 }} />
-              No
+              Don't Use Milk
             </div>
           </motion.div>
         </div>
@@ -134,18 +151,35 @@ const ScrollableForm = () => {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.1 }}
           >
             <img className='initial-illustration' height={160} width={160} alt={formData.beverageType} src={Choices} />
             <h2>Would you like your {formData.beverageType} to be creamy?</h2>
-            <div className='customer-choice' onClick={() => { handleInputChange('sweetness', 'sweet'); handleNext(4); }}>
+            <div className='customer-choice' onClick={() => { handleInputChange('creaminess', 'creamy'); handleNext(4); }}>
               <CoffeeMakerOutlinedIcon style={{ height: 50, width: 50 }} />
-              Yes
+              Creamy
             </div>
-            <div className='customer-choice' onClick={() => { handleInputChange('sweetness', 'concentrated'); handleNext(4); }}>
+            <div className='customer-choice' onClick={() => { handleInputChange('creaminess', 'tidak creamy'); handleNext(4); }}>
               <EmojiFoodBeverageOutlinedIcon style={{ height: 50, width: 50 }} />
-              No
+              Not Creamy
             </div>
+          </motion.div>
+        </div>
+      )}
+      {step >= 5 && (
+        <div className='user-answers' ref={scrollRefs.question5}>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.1 }}
+          >
+            <img className='initial-illustration' height={160} width={160} alt={formData.beverageType} src={SubmitIllustration} />
+            <h2>Klik Submit Untuk Konfirmasi Ordermu</h2>
+            <div className='customer-choice' onClick={() => { handleInputChange('sweetness', 'sweet'); handleSubmit() }}>
+              <CoffeeMakerOutlinedIcon style={{ height: 50, width: 50 }} />
+              Submit
+            </div>
+
           </motion.div>
         </div>
       )}
