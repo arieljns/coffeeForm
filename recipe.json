@@ -1,0 +1,19 @@
+{
+  "recipe_name": "latte",
+  "ingredients":{
+    "espresso":{
+      "volume": 30
+    },
+    "milk":{
+      "volume":180,
+      "description":"steam milk"
+    },
+    "sweetener":{
+      "volume": 15,
+      "description": "cinammon syrup"
+    }
+  },
+  "insturctions":[
+    {"step":1, "description":  "brew espressonya"}
+  ]
+}
