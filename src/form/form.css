@@ -51,7 +51,7 @@ img.initial-illustration{
 }
 
 .customer-choice:hover{
-  background-color: #E28A0B;
+  background-color: #37738c;
 }
 
 
@@ -75,5 +75,20 @@ img.initial-illustration{
 
 .percentage{
   height:7px;
-  background-color: #E28A0B;
+  background-color: #37738c;
+}
+
+h2{
+  font-family: "Lato", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: xx-large;
+}
+
+
+p{
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: x-large;
 }
