@@ -1,11 +1,12 @@
 body {
-  font-family: 'Inter', sans-serif;
   margin: 0;
   padding: 0;
   background-color: #eee4e45d;
   display: flex;
   flex-direction: column;
   align-items: center;
+
+ 
 }
 
 .questions-div{
@@ -13,11 +14,13 @@ body {
   top: 10px;
   margin-bottom: 20px;
   padding: 20px;
+  flex: 1;
 }
 
 .form-container{
   padding: 30px;
   align-content: center;
+  height: 100vh;
 }
 
 h2 {
@@ -29,7 +32,10 @@ h2 {
 }
 
 img.initial-illustration{
-  top:1000px;
+  position: relative;
+  margin: auto;
+  max-width: 100%; /* Make it responsive */
+  height: auto;
 }
 
 .choices-container{
@@ -58,19 +64,25 @@ img.initial-illustration{
 .user-answers{
   position: relative;
   top: 10px;
+  padding-top: 20px;
   padding: 20px;
+  overflow-y: auto;
+  margin-bottom: 10px;
 }
 
 .progress-bar{
   height: 8px;
-  width: 88%;
+  width: 100%;
   background-color: #ffff;
   box-shadow: 0px 1px 1px 2px rgba(0, 0, 0, 0.3);
   border-radius: 20px;
   position:fixed;
-  z-index: 1;
+  z-index: 1000;
+  top: 0;
   display: flex;
- align-items: center;
+  left: 0;
+  align-items: center;
+  overflow: hidden;
 }
 
 .percentage{

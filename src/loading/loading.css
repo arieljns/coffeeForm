@@ -1,6 +1,14 @@
-.ball{
-  height: 10vh;
-  width: 20vw;
-  background-color: blueviolet;
-  border-radius: 1000px;
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; 
+  margin: 0; 
+}
+
+
+
+h4{
+  position: relative;
+  left: 20px;
 }

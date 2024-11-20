@@ -1,20 +1,27 @@
 {
   "files": {
-    "main.css": "/static/css/main.39be27cc.css",
-    "main.js": "/static/js/main.ccd3af7e.js",
+    "main.css": "/static/css/main.478b53a0.css",
+    "main.js": "/static/js/main.bdfc9bdf.js",
     "static/js/845.db274c29.chunk.js": "/static/js/845.db274c29.chunk.js",
+    "static/media/iced coffee.png": "/static/media/iced coffee.d3f3ae09d4a7c9a17734.png",
     "static/media/tampingCoffee.svg": "/static/media/tampingCoffee.83d927ccf6e96c18e591e1aa4509c15f.svg",
     "static/media/aeropress.svg": "/static/media/aeropress.362dbe3206c174018186288b55036728.svg",
     "static/media/makingespresso.svg": "/static/media/makingespresso.a27a2c1bc03ba92cc9c3c43c0cce69d5.svg",
     "static/media/manualbrew.svg": "/static/media/manualbrew.74d7445fa57d07dbafd3b953ca0d28d8.svg",
     "static/media/latteart.svg": "/static/media/latteart.45bab7b0c9f16c5b0fd750ed13d4ec88.svg",
+    "static/media/ngadukkopi.svg": "/static/media/ngadukkopi.73eed505f19ae3861d1a800b4fdf1c3d.svg",
+    "static/media/qris.png": "/static/media/qris.3a0cd00dd28824ebd9ee.png",
+    "static/media/coffee-beans-.svg": "/static/media/coffee-beans-.d26e4e47113df81b2dd0a1873f2934e4.svg",
+    "static/media/chia-seeds.svg": "/static/media/chia-seeds.f2aac350398dc904537ed9e9deef3f48.svg",
+    "static/media/whipped-cream.svg": "/static/media/whipped-cream.0a4a71c09d50a898aaf47b667112616a.svg",
+    "static/media/sugar-cube.svg": "/static/media/sugar-cube.f5ab9d6c17aaa203dcd7c40dd0cbb91e.svg",
     "index.html": "/index.html",
-    "main.39be27cc.css.map": "/static/css/main.39be27cc.css.map",
-    "main.ccd3af7e.js.map": "/static/js/main.ccd3af7e.js.map",
+    "main.478b53a0.css.map": "/static/css/main.478b53a0.css.map",
+    "main.bdfc9bdf.js.map": "/static/js/main.bdfc9bdf.js.map",
     "845.db274c29.chunk.js.map": "/static/js/845.db274c29.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.39be27cc.css",
-    "static/js/main.ccd3af7e.js"
+    "static/css/main.478b53a0.css",
+    "static/js/main.bdfc9bdf.js"
   ]
 }

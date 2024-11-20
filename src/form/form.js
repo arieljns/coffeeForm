@@ -7,9 +7,10 @@ import { ReactComponent as LatteArtSVG } from "../assets/Asset Web/latteart.svg"
 import { ReactComponent as MakingEspressoSVG } from "../assets/Asset Web/makingespresso.svg"
 import { ReactComponent as TampingCoffeeSVG } from "../assets/Asset Web/tampingCoffee.svg"
 import { useNavigate } from 'react-router-dom';
-import uploadOrderData from '../api/uploadFormData';
+import { useUpload } from '../context/preferencesContext';
 
 const ScrollableForm = () => {
+  const { uploadPreferencesData } = useUpload()
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({
     beverageType: '',
@@ -17,7 +18,9 @@ const ScrollableForm = () => {
     milk: '',
     creaminess: ''
   });
-  const [selectedChoices, setSelectedChoices] = useState({}); // Track selected choices
+  const [selectedChoices, setSelectedChoices] = useState({});
+
+
 
   const navigate = useNavigate();
 
@@ -30,13 +33,20 @@ const ScrollableForm = () => {
   };
 
   useEffect(() => {
-    const nextQuestionRef = scrollRefs[`question${step}`]?.current;
-    if (nextQuestionRef) {
-      nextQuestionRef.scrollIntoView({ behavior: 'smooth' });
+
+    if (scrollRefs[`question${step}`] && scrollRefs[`question${step}`].current) {
+      scrollRefs[`question${step}`].current.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+        inline: 'center'
+      });
     }
   }, [step]);
 
-  const handleNext = (currentStep) => setStep(currentStep + 1);
+  const handleNext = (currentStep) => {
+    console.log(currentStep)
+    setStep(currentStep + 1);
+  }
 
   const handleInputChange = (name, value, question) => {
     setFormData({
@@ -45,15 +55,15 @@ const ScrollableForm = () => {
     });
     setSelectedChoices({
       ...selectedChoices,
-      [question]: value // Mark this question's choice as selected
+      [question]: value
     });
   };
 
   const handleSubmit = async () => {
     try {
-      let resultFormData = await uploadOrderData(formData);
+      await uploadPreferencesData(formData)
       navigate('/post-order');
-      console.log("Data submitted successfully", resultFormData);
+      localStorage.setItem("preferences", JSON.stringify(formData))
     } catch (error) {
       console.error("Failed to submit form data: ", error);
     }
@@ -70,20 +80,22 @@ const ScrollableForm = () => {
   };
 
   const selectedStyle = {
-    backgroundColor: "#37738c", // Change to desired selected color
+    backgroundColor: "#37738c",
     color: "#fff"
   };
 
   return (
+
     <div className="form-container">
+
       <div className="progress-bar">
         <div className="percentage" style={{ width: `${progressBar(step)}%` }}></div>
       </div>
 
-      <div className="questions-wrapper">
+      <div className=" user-answers">
         <motion.div
           ref={scrollRefs.question1}
-          initial={{ opacity: 0 }}
+          initial={{ opacity: 1 }}
           animate={{ opacity: step >= 1 ? 1 : 0 }}
           transition={{ duration: 1 }}
           className="questions-div"
