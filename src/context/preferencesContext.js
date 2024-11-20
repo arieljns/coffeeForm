@@ -15,7 +15,7 @@ export const UploadProvider = ({ children }) => {
     try {
       setLoading(true);
       const { data } = await axios.post(
-        'http://localhost:8080/coffee/form',
+        'https://blendtheorybackend.onrender.com/coffee/form',
         formData,
         {
           headers: {
@@ -36,7 +36,7 @@ export const UploadProvider = ({ children }) => {
   useEffect(() => {
     if (preferencesData && Object.keys(preferencesData).length > 0) {
       localStorage.setItem('recipeData', JSON.stringify(preferencesData));
-
+      console.log("data recipe is saved")
     }
   }, [preferencesData]);
 
