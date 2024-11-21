@@ -1,9 +1,8 @@
 {
   "files": {
-    "main.css": "/static/css/main.478b53a0.css",
-    "main.js": "/static/js/main.bdfc9bdf.js",
+    "main.css": "/static/css/main.3bf5c487.css",
+    "main.js": "/static/js/main.fdeade77.js",
     "static/js/845.db274c29.chunk.js": "/static/js/845.db274c29.chunk.js",
-    "static/media/iced coffee.png": "/static/media/iced coffee.d3f3ae09d4a7c9a17734.png",
     "static/media/tampingCoffee.svg": "/static/media/tampingCoffee.83d927ccf6e96c18e591e1aa4509c15f.svg",
     "static/media/aeropress.svg": "/static/media/aeropress.362dbe3206c174018186288b55036728.svg",
     "static/media/makingespresso.svg": "/static/media/makingespresso.a27a2c1bc03ba92cc9c3c43c0cce69d5.svg",
@@ -11,17 +10,18 @@
     "static/media/latteart.svg": "/static/media/latteart.45bab7b0c9f16c5b0fd750ed13d4ec88.svg",
     "static/media/ngadukkopi.svg": "/static/media/ngadukkopi.73eed505f19ae3861d1a800b4fdf1c3d.svg",
     "static/media/qris.png": "/static/media/qris.3a0cd00dd28824ebd9ee.png",
-    "static/media/coffee-beans-.svg": "/static/media/coffee-beans-.d26e4e47113df81b2dd0a1873f2934e4.svg",
-    "static/media/chia-seeds.svg": "/static/media/chia-seeds.f2aac350398dc904537ed9e9deef3f48.svg",
-    "static/media/whipped-cream.svg": "/static/media/whipped-cream.0a4a71c09d50a898aaf47b667112616a.svg",
-    "static/media/sugar-cube.svg": "/static/media/sugar-cube.f5ab9d6c17aaa203dcd7c40dd0cbb91e.svg",
+    "static/media/Cold-brew.svg": "/static/media/Cold-brew.be42a6bb1694a6f8324f6d832b61c360.svg",
+    "static/media/Sugar-and-milk.svg": "/static/media/Sugar-and-milk.db682c6d5dad19560f18202c1a893015.svg",
+    "static/media/Moka-pot.svg": "/static/media/Moka-pot.dc7af488387d76d52477788eb5d92c94.svg",
+    "static/media/Green-tea.svg": "/static/media/Green-tea.575f60244d3c28b17a68379cf45f4051.svg",
+    "static/media/Coffee-with-cream.svg": "/static/media/Coffee-with-cream.8383698496e3df44f49f936e72a06470.svg",
     "index.html": "/index.html",
-    "main.478b53a0.css.map": "/static/css/main.478b53a0.css.map",
-    "main.bdfc9bdf.js.map": "/static/js/main.bdfc9bdf.js.map",
+    "main.3bf5c487.css.map": "/static/css/main.3bf5c487.css.map",
+    "main.fdeade77.js.map": "/static/js/main.fdeade77.js.map",
     "845.db274c29.chunk.js.map": "/static/js/845.db274c29.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.478b53a0.css",
-    "static/js/main.bdfc9bdf.js"
+    "static/css/main.3bf5c487.css",
+    "static/js/main.fdeade77.js"
   ]
 }

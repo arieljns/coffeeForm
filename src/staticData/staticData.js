@@ -1,7 +1,7 @@
 import CoffeeImg from "../assets/icons/SVG/Moka-pot.svg"
 import TeaImg from "../assets/icons/SVG/Green-tea.svg"
 import MilkImg from "../assets/icons/SVG/Sugar-and-milk.svg"
-import SugarImg from "../assets/icons/SVG/Sugar.svg"
+import SugarImg from "../assets/icons/SVG/Coffee-with-cream.svg"
 
 const staticData = [
   {
