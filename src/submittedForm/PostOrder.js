@@ -1,11 +1,10 @@
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
-import { ReactComponent as TampingCoffeeSVG } from "../assets/Asset Web/tampingCoffee.svg"
 import { useUpload } from "../context/preferencesContext"
 import staticData from "../staticData/staticData"
 import './post-order.css'
 import { easeInOut, motion } from "framer-motion"
-import CoffeePng from "../assets/3d/iced coffee.png"
+import CoffeePng from "../assets/icons/SVG/Cold-brew.svg"
 
 const PostOrder = () => {
   //make a routing 
@@ -17,7 +16,7 @@ const PostOrder = () => {
 
 
   const handleRegenerate = () => {
-    
+
     let retrievePreferences = localStorage.getItem("preferences");
     if (retrievePreferences) {
       try {
@@ -62,12 +61,16 @@ const PostOrder = () => {
           }}
 
           className="parent">
-         
+
           <div className="img-container">
-          <h1>{recipe.title}</h1>
-            <img className="responsive-img" src={CoffeePng} alt="coffee"></img>
+            <div className="container-title">
+              <h1>{recipe.title}</h1>
+              <img className="responsive-img" width={100} height={100} src={CoffeePng} alt="coffee"></img>
+            </div>
+            <hr></hr>
+            <p className="taste-profile">{recipe.description}</p>
           </div>
-          <p className="taste-profile">{recipe.description}</p>
+         
           <div className="decoy">
             <div className="information-container">
               <div className="time-estimation">
@@ -84,22 +87,22 @@ const PostOrder = () => {
           <button onClick={handleRegenerate} className="regenerate">Beri Saya Menu Lain</button>
 
           <div className="decoy"></div>
-            <div className="ingredient-container">
-              {recipe.ingredients.map((ingredient, index) => (
-                <div className="ingredient-name" key={index}>
-                  <p>{ingredient.name}</p>
-                  <div className="ingredient-desc">
-                    <img src={ingredient.name.includes("coffee") || ingredient.name.includes("kopi") ? staticData[0].imgSrc : staticData[index].imgSrc} alt="icons-ingredient" />
-                    <p className="desc">{staticData[index].description}</p>
-                  </div>
-                  <hr></hr>
+          <div className="ingredient-container">
+            {recipe.ingredients.map((ingredient, index) => (
+              <div className="ingredient-name" key={index}>
+                <p>{ingredient.name}</p>
+                <div className="ingredient-desc">
+                  <img width={40} height={40} src={ingredient.name.includes("coffee") || ingredient.name.includes("kopi") ? staticData[0].imgSrc : staticData[index].imgSrc} alt="icons-ingredient" />
+                  <p className="desc">{staticData[index].description}</p>
                 </div>
-              ))}
-            </div>
-          
+                <hr></hr>
+              </div>
+            ))}
+          </div>
+
         </motion.div>}
       <div className="add-ons">
-        
+
         <div className="ingredient-container">
 
           <div >
@@ -108,7 +111,7 @@ const PostOrder = () => {
               <input type="radio" name="ingredient" value="Foam" />
             </div>
             <div className="ingredient-desc">
-              <img src={staticData[0].imgSrc} alt="icons-ingredient" />
+              <img width={40} height={40} src={staticData[0].imgSrc} alt="icons-ingredient" />
               <p className="desc">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit quis aspernatur a!</p>
             </div>
             <hr />
@@ -118,7 +121,7 @@ const PostOrder = () => {
             </div>
 
             <div className="ingredient-desc">
-              <img src={staticData[1].imgSrc} alt="icons-ingredient" />
+              <img width={40} height={40} src={staticData[1].imgSrc} alt="icons-ingredient" />
               <p className="desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam!</p>
             </div>
             <hr />
@@ -127,7 +130,7 @@ const PostOrder = () => {
               <input type="radio" name="ingredient" value="Foam" />
             </div>
             <div className="ingredient-desc">
-              <img src={staticData[2].imgSrc} alt="icons-ingredient" />
+              <img width={40} height={40} src={staticData[2].imgSrc} alt="icons-ingredient" />
               <p className="desc">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
             </div>
             <hr />
@@ -136,7 +139,7 @@ const PostOrder = () => {
         </div>
       </div>
       <div className='button-container'>
- 
+
         <button onClick={handleSubmit} className="payment">Pembayaran </button>
       </div>
 
