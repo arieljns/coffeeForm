@@ -120,6 +120,8 @@ button{
   display: flex;
   gap: 10px;
   height: fit-content;
+  position: relative;
+  bottom: 10px;
 }
 
 
