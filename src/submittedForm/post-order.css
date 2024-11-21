@@ -1,3 +1,6 @@
+body{
+  margin-bottom: 10px;
+}
 
 .question{
   position: relative;
@@ -74,7 +77,7 @@ button{
   border-radius: 5px;
   cursor: pointer;
   margin: 10px;
-  background-color: #37738c;
+  background:  radial-gradient(circle, #37738c, rgba(0, 0, 0, 0.7)); ;
   width: 100%;
   box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1); 
 }
@@ -133,7 +136,7 @@ p{
 .regenerate{
   position: relative;
   right:10px;
-  background-color: brown;
+  background:  radial-gradient(circle, brown , rgba(0, 0, 0, 0.9));
   border-radius: 10px;
 
 }
@@ -142,26 +145,33 @@ p{
   font-size: medium;
   position: relative;
   left: 10px;
+  color: white;
 }
 
 .img-container{
-  background-color: #a96920;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(to right, #a96920 20%, rgba(0, 0, 0, 0.9));
   border-radius: 20px;
+  height: auto;
+  align-items: center;
+  max-width: auto;
+  padding: 10px;
+}
+
+.responsive-img{ 
+    height: auto; /* Maintain aspect ratio */
+    object-fit: contain; /* Ensures the image fits without distortion */
+    position: relative;
+    right: 10px;
+}
+
+.container-title{
   height: fit-content;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
   max-width: fit-content;
-  position: relative;
-  left: 5px;
-  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3); 
-}
-
-.responsive-img{ 
-  max-width: 150px;
-    height: auto; /* Maintain aspect ratio */
-    object-fit: contain; /* Ensures the image fits without distortion */
-  
+ 
 }
 
 
