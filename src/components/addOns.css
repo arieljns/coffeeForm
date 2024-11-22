@@ -1,0 +1,49 @@
+
+.add-ons-container{
+  border-radius: 16px;
+  box-shadow: 1px 6px 1px 2px rgba(0, 0, 0, 0.2);
+  font-size: 16px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+  padding: 10px;
+  width: 300px;
+}
+
+.embla {
+  width: 100%;
+  overflow: hidden;
+}
+.embla__container {
+  display: flex;
+  width: 100%;
+ 
+}
+.embla__slide {
+  flex: 0 0 100%; 
+  max-width: 70%; 
+  max-height: 110px;
+  box-sizing: border-box;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f9f9f9;
+  border-radius: 8px;
+  margin: 10px; 
+  background:  linear-gradient(to right, #007590 20%, rgba(124, 208, 149, 0.6));
+  color:white ;
+  gap:10px;
+  box-shadow: 1px 6px 1px 2px rgba(0, 0, 0, 0.2);
+  transition: background 0.7s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+
+.desc-add{
+  font-size: small;
+  position: relative;
+  bottom: 10px;
+}
+

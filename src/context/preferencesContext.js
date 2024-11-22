@@ -15,7 +15,7 @@ export const UploadProvider = ({ children }) => {
     try {
       setLoading(true);
       const { data } = await axios.post(
-        'https://blendtheorybackend.onrender.com/coffee/form',
+        'http://localhost:3000/coffee/form',
         formData,
         {
           headers: {
@@ -23,7 +23,7 @@ export const UploadProvider = ({ children }) => {
           },
         }
       );
-      console.log('this upload Preferences Data is fire')
+      console.log('this upload Preferences Data is fire', data.recipe.add_ons )
       setPreferencesData(data.recipe);
     } catch (error) {
       console.error('Failed to upload the data:', error);
