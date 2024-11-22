@@ -4,15 +4,18 @@ import { useUpload } from "../context/preferencesContext"
 import staticData from "../staticData/staticData"
 import './post-order.css'
 import { easeInOut, motion } from "framer-motion"
+import AddOns from "../components/AddOns"
 import CoffeePng from "../assets/icons/SVG/Cold-brew.svg"
+
 
 const PostOrder = () => {
   //make a routing 
   const navigateOrder = useNavigate()
   const navigateRegenerate = useNavigate()
   const [recipe, setRecipe] = useState(null)
-
   const { uploadPreferencesData } = useUpload()
+
+
 
 
   const handleRegenerate = () => {
@@ -70,7 +73,7 @@ const PostOrder = () => {
             <hr></hr>
             <p className="taste-profile">{recipe.description}</p>
           </div>
-         
+
           <div className="decoy">
             <div className="information-container">
               <div className="time-estimation">
@@ -102,42 +105,12 @@ const PostOrder = () => {
 
         </motion.div>}
       <div className="add-ons">
-
-        <div className="ingredient-container">
-
-          <div >
-            <div className="addons-name">
-              <p>Foam</p>
-              <input type="radio" name="ingredient" value="Foam" />
-            </div>
-            <div className="ingredient-desc">
-              <img width={40} height={40} src={staticData[0].imgSrc} alt="icons-ingredient" />
-              <p className="desc">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit quis aspernatur a!</p>
-            </div>
-            <hr />
-            <div className="addons-name">
-              <p>Caramel Syrup</p>
-              <input type="radio" name="ingredient" value="Foam" />
-            </div>
-
-            <div className="ingredient-desc">
-              <img width={40} height={40} src={staticData[1].imgSrc} alt="icons-ingredient" />
-              <p className="desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam!</p>
-            </div>
-            <hr />
-            <div className="addons-name">
-              <p>Pystachio Syrup</p>
-              <input type="radio" name="ingredient" value="Foam" />
-            </div>
-            <div className="ingredient-desc">
-              <img width={40} height={40} src={staticData[2].imgSrc} alt="icons-ingredient" />
-              <p className="desc">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-            </div>
-            <hr />
-          </div>
-
-        </div>
+      <p>Add Ons:</p>
+        <AddOns 
+          recipe={recipe}
+        />
       </div>
+
       <div className='button-container'>
 
         <button onClick={handleSubmit} className="payment">Pembayaran </button>
