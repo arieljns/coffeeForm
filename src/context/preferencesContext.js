@@ -15,7 +15,7 @@ export const UploadProvider = ({ children }) => {
     try {
       setLoading(true);
       const { data } = await axios.post(
-        'http://localhost:3000/coffee/form',
+        'https://blendtheorybackend.onrender.com/coffee/form',
         formData,
         {
           headers: {
