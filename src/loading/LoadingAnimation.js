@@ -2,6 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import './loading.css';
 import { ReactComponent as NgadukKopiSVG } from '../assets/Asset Web/ngadukkopi.svg';
+import ornamenLoading from '../assets/blendTheoryAssets/ornamenLoading.png'
 
 const LoadingAnimation = () => {
   return (
@@ -17,8 +18,8 @@ const LoadingAnimation = () => {
         ease: "easeInOut"   
       }}
     >
-      <NgadukKopiSVG width={200} height={200} />
-      <h4>Performing Magic....</h4>
+      <img rel="preload"  src={ornamenLoading} alt='ornamen-loading' width={250} height={250} />
+  
     </motion.div>
   );
 };
